@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerprefab: {fileID: 1425629024332648833, guid: d8a9453400263d64e92fc3578a8083fb, type: 3}
+  tela: {fileID: 368181075}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
