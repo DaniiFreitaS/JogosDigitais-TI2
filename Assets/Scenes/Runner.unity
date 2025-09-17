@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 262809028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.2, z: 0}
+  m_LocalPosition: {x: 0, y: 74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -516,10 +516,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pisos:
-  - {fileID: 4973358213324362112, guid: 08a0efe3db9d33442a72835a365f65ec, type: 3}
-  - {fileID: 53047044055014601, guid: c80f23ecc05cf3040bf1907294ddb1f9, type: 3}
-  - {fileID: 53047044055014601, guid: 041ce1448cbfa4c4091f851948bb8b39, type: 3}
-  larguraPiso: 20
+  - {fileID: 3284412298896422447, guid: 92694425ff4425744b7bf7cac3b741f9, type: 3}
+  - {fileID: 4200820637666439205, guid: 85a65b81b2aa76b498328bb556fa55ee, type: 3}
+  - {fileID: 6389070399448864335, guid: e04178f6bdc79dc40bb3216d22293e98, type: 3}
+  - {fileID: 2441370886231036806, guid: 74ad82c20519f284795459655cb4cbfd, type: 3}
+  larguraPiso: 15
   cameraRef: {fileID: 330585546}
 --- !u!1 &832575517
 GameObject:
