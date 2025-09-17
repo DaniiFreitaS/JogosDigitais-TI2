@@ -8,7 +8,7 @@ public class SpawnerController : MonoBehaviour
     {
         playerprefab = Instantiate(playerprefab, transform.position, Quaternion.identity);
 
-        playerprefab.transform.SetParent(tela);
+        //playerprefab.transform.SetParent(tela);
 
     }
 
