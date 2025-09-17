@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     {
         if ( velocidade == 0)
         {
-            velocidade = 25;
+            velocidade = 5;
         }
     }
 
