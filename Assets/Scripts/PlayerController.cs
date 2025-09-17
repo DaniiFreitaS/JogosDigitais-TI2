@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            movimento.y -= gravidade * Time.deltaTime; // aplica gravidade
+            movimento.y -= gravidade * Time.deltaTime; // aplica gravidade quando o player esta pulando
         }
 
         // Move o player
