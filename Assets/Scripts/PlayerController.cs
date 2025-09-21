@@ -3,12 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public float velocidade = 25f;       // corrida constante
-    public float alturaPulo = 15f;       // altura do pulo
-    public float gravidade = 30f;        // gravidade aplicada
+    public float velocidadeMax = 25f;   // velocidade máxima
+    public float aceleracao = 5f;       // quanto a velocidade aumenta por segundo
+    public float alturaPulo = 15f;      // altura do pulo
+    public float gravidade = 30f;       // gravidade aplicada
 
     private CharacterController cc;
-    private Vector3 movimento;           // vetor de movimento
+    private Vector3 movimento;
+    private float velocidadeAtual = 0f; // começa parado
 
     void Start()
     {
@@ -17,25 +19,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Movimento do player correndo separado do movimento da camera para conseguir ter colisoes
-        movimento.x = velocidade;
+        // Aumenta a velocidade suavemente até a velocidade máxima
+        if (velocidadeAtual < velocidadeMax)
+        {
+            velocidadeAtual += aceleracao * Time.deltaTime;
+            velocidadeAtual = Mathf.Min(velocidadeAtual, velocidadeMax); // limita
+        }
 
-        //Verificar se o player esta no chao ou no meio do pulo
+        // Movimento horizontal
+        movimento.x = velocidadeAtual;
+
+        // Movimento vertical (pulo / gravidade)
         if (cc.isGrounded)
         {
-            if (Input.GetKeyDown(KeyCode.Space))//Pulo do player
+            if (Input.GetKeyDown(KeyCode.Space)) // Pulo
             {
-                // Calcula a velocidade inicial do pulo
                 movimento.y = Mathf.Sqrt(2 * gravidade * alturaPulo);
             }
             else
             {
-                movimento.y = -1f; // força mínima para manter contato com chão
+                movimento.y = -1f; // mantém contato
             }
         }
         else
         {
-            movimento.y -= gravidade * Time.deltaTime; // aplica gravidade quando o player esta pulando
+            movimento.y -= gravidade * Time.deltaTime;
         }
 
         // Move o player

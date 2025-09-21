@@ -7,7 +7,7 @@ public class GameOverScreen : MonoBehaviour
     public GameObject PainelG; //Painel Game Over
     public void Restart()
     {
-        SceneManager.LoadScene("Teste");
+        SceneManager.LoadScene("Runner");
     }
 
     void Start()
@@ -15,13 +15,13 @@ public class GameOverScreen : MonoBehaviour
         PainelG.SetActive(false);
         Time.timeScale = 1;
     }
-private void OnCollisionEnter(Collision collision)
-{
-    if (collision.gameObject.CompareTag("Player"))
+    private void OnTriggerEnter(Collider other)
     {
-        PainelG.SetActive(true);
-        Time.timeScale = 0;
+        if (other.CompareTag("Player")) // só funciona se o Player tiver a tag "Player"
+        {
+            PainelG.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
-}
 }
 
