@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 movimento;
     private float velocidadeAtual = 0f; // começa parado
 
+    public int vidas = 5;//vidas do player
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour
     {
         Mover();
     }
+
+    
 
     void Mover()
     {

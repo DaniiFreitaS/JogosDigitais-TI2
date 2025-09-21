@@ -9,6 +9,12 @@ public class PisoSpawner : MonoBehaviour
     public Transform cameraRef;
     [Range(0f, 1f)] public float chanceObstaculo = 0.3f;
 
+
+    public GameObject moedaPrefab;       // prefab da moeda
+    [Range(0f, 1f)] public float chanceMoeda = 0.5f;
+
+
+
     void Start()
     {
         for (int i = 0; i < 5; i++)
@@ -48,6 +54,18 @@ public class PisoSpawner : MonoBehaviour
             else
             {
                 Debug.LogWarning("PontoObstaculo não encontrado no prefab: " + novoPiso.name);
+            }
+        }
+
+        // Spawn Moeda
+        if (Random.value < chanceMoeda && moedaPrefab != null)
+        {
+            Debug.Log("teste");
+            Transform pontoSpawnMoeda = novoPiso.transform.Find("PontoMoeda");
+            if (pontoSpawnMoeda != null)
+            {
+                GameObject moeda = Instantiate(moedaPrefab, pontoSpawnMoeda.position, Quaternion.identity, novoPiso.transform);
+                Destroy(moeda, 10f);
             }
         }
 
