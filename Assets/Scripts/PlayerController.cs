@@ -3,10 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public float velocidadeMax = 25f;   // velocidade máxima
-    public float aceleracao = 5f;       // quanto a velocidade aumenta por segundo
-    public float alturaPulo = 15f;      // altura do pulo
-    public float gravidade = 30f;       // gravidade aplicada
+    public float velocidadeMax = 14f;   // velocidade máxima
+    public float aceleracao = 1f;       // quanto a velocidade aumenta por segundo
+    public float alturaPulo = 6f;      // altura do pulo
+    public float gravidade = 140f;       // gravidade aplicada
 
     private CharacterController cc;
     private Vector3 movimento;
@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
+    {
+        Mover();
+    }
+
+    void Mover()
     {
         // Aumenta a velocidade suavemente até a velocidade máxima
         if (velocidadeAtual < velocidadeMax)
@@ -32,7 +37,7 @@ public class PlayerController : MonoBehaviour
         // Movimento vertical (pulo / gravidade)
         if (cc.isGrounded)
         {
-            if (Input.GetKeyDown(KeyCode.Space)) // Pulo
+            if (Input.GetKey(KeyCode.Space)) // Pulo
             {
                 movimento.y = Mathf.Sqrt(2 * gravidade * alturaPulo);
             }

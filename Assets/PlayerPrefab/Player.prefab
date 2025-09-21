@@ -48,9 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4e02ab225bbff43ac6aea77fd6acee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 10
-  alturaPulo: 7
-  gravidade: 90
+  velocidadeMax: 14
+  aceleracao: 2.01
+  alturaPulo: 6
+  gravidade: 49.9
 --- !u!136 &5850026263151525638
 CapsuleCollider:
   m_ObjectHideFlags: 0
