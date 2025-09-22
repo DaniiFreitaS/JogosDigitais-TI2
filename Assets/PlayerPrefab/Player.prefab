@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5850026263151525638}
   - component: {fileID: 9184088870296555561}
   - component: {fileID: 6939609480919186917}
+  - component: {fileID: 1441205608476877458}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -52,6 +53,7 @@ MonoBehaviour:
   aceleracao: 2.01
   alturaPulo: 6
   gravidade: 49.9
+  vidas: 5
 --- !u!136 &5850026263151525638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -112,6 +114,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1441205608476877458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425629024332648833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e11f2225ac121dc4887ca61315d46853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Moedatxt: {fileID: 0}
+  moedasatuais: 0
+  Vitoria: {fileID: 0}
 --- !u!1 &7923526218283170557
 GameObject:
   m_ObjectHideFlags: 0

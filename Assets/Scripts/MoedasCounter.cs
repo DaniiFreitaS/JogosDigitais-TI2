@@ -4,18 +4,27 @@ using TMPro;
 public class MoedasCounter : MonoBehaviour
 {
     public static MoedasCounter instance;
-    public TMP_Text Moedatxt;
+    private TMP_Text Moedatxt;   // agora é privado
     public int moedasatuais = 0;
     public GameObject Vitoria;
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+
+        // procura o objeto pelo nome e pega o TMP_Text
+        GameObject textoObj = GameObject.Find("TextoMoedas");
+        if (textoObj != null)
+            Moedatxt = textoObj.GetComponent<TMP_Text>();
+        
     }
 
     void Start()
     {
-        Moedatxt.text = "Moedas: " + moedasatuais.ToString() + "/10";
+        AtualizarTexto();
     }
 
     void Update()
@@ -30,6 +39,12 @@ public class MoedasCounter : MonoBehaviour
     public void AumentoDeMoedas(int v)
     {
         moedasatuais += v;
-        Moedatxt.text = "Moedas: " + moedasatuais.ToString() + "/10";
+        AtualizarTexto();
+    }
+
+    private void AtualizarTexto()
+    {
+        if (Moedatxt != null)
+            Moedatxt.text = "Moedas: " + moedasatuais.ToString() + "/10";
     }
 }
