@@ -19,7 +19,10 @@ public class MoedasCounter : MonoBehaviour
         GameObject textoObj = GameObject.Find("TextoMoedas");
         if (textoObj != null)
             Moedatxt = textoObj.GetComponent<TMP_Text>();
-        
+
+        Vitoria = GameObject.Find("Vitoria");
+        Vitoria.SetActive(false);
+
     }
 
     void Start()
