@@ -7,13 +7,13 @@ public class CameraController : MonoBehaviour
     {
         if ( velocidade == 0)
         {
-            velocidade = 25;
+            velocidade = 5;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * velocidade * Time.deltaTime);
+        //transform.Translate(Vector3.right * velocidade * Time.deltaTime);
     }
 }

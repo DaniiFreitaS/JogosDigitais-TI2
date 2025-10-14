@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -25,7 +24,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene("Teste");
+        SceneManager.LoadScene("Runner");
     }
         public void Menu()
     {
