@@ -19,8 +19,9 @@ public class GameOverScreen : MonoBehaviour
     {
         if (other.CompareTag("Player")) // só funciona se o Player tiver a tag "Player"
         {
-            PainelG.SetActive(true);
-            Time.timeScale = 0;
+            Debug.Log(gameObject.name);
+            //PainelG.SetActive(true);
+            //Time.timeScale = 0;
         }
     }
 }

@@ -58,4 +58,30 @@ public class PlayerController : MonoBehaviour
         // Move o player
         cc.Move(movimento * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy") || other.CompareTag("LimiteInf"))
+        {
+            if (vidas > 1)
+            {
+                vidas--;
+                ResetPos();
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+        }
+    }
+
+    private void ResetPos()
+    {
+        cc.enabled = false;
+        Vector3 reset = transform.position;
+        reset.y = 25f;
+        transform.position = reset;
+        cc.enabled = true;
+    }
+
 }
