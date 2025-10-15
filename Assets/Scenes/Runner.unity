@@ -512,7 +512,7 @@ Transform:
   m_GameObject: {fileID: 421052521}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalPosition: {x: 15, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -531,16 +531,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pisos:
-  - {fileID: 3284412298896422447, guid: 92694425ff4425744b7bf7cac3b741f9, type: 3}
   - {fileID: 4200820637666439205, guid: 85a65b81b2aa76b498328bb556fa55ee, type: 3}
+  - {fileID: 6389070399448864335, guid: e04178f6bdc79dc40bb3216d22293e98, type: 3}
   - {fileID: 2441370886231036806, guid: 74ad82c20519f284795459655cb4cbfd, type: 3}
+  - {fileID: 3284412298896422447, guid: 92694425ff4425744b7bf7cac3b741f9, type: 3}
+  - {fileID: 4200820637666439205, guid: 8d04997327a842943ba5e3a05a515347, type: 3}
+  - {fileID: 6389070399448864335, guid: 34c97ed6a25735347ae9213299a8ae72, type: 3}
+  - {fileID: 2441370886231036806, guid: 3c9aa9c2d1c0f7f448073d8d58197191, type: 3}
+  - {fileID: 3284412298896422447, guid: 02061a128cad79247bb87b16680baccf, type: 3}
   obstaculos:
   - {fileID: 2204837498651186538, guid: 27f0bf71516c242489c3cbd67e0f8b74, type: 3}
   larguraPiso: 15
   cameraRef: {fileID: 330585546}
-  chanceObstaculo: 0.3
+  chanceObstaculo: 0
   moedaPrefab: {fileID: 3353787764907514990, guid: 3c1e8b8f1b1bc1c4d9f99fd961beb076, type: 3}
-  chanceMoeda: 0.5
+  chanceMoeda: 0
 --- !u!1 &429200194
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +613,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 50, y: 10, z: 50}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &731925860 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5931185205749413956, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
+  m_PrefabInstance: {fileID: 8687279309122253257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +845,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1366731437321810657, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
+      propertyPath: highscoreText
+      value: 
+      objectReference: {fileID: 731925860}
     - target: {fileID: 4202844039809377166, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -836,6 +856,22 @@ PrefabInstance:
     - target: {fileID: 7008858941198542236, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790788195298725416, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790788195298725416, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
+      propertyPath: moedasCounter
+      value: 
+      objectReference: {fileID: 1441205608476877458, guid: d8a9453400263d64e92fc3578a8083fb, type: 3}
+    - target: {fileID: 8790788195298725416, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
+      propertyPath: resultadoDerrotaTxt
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790788195298725416, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
+      propertyPath: resultadoVitoriaTxt
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

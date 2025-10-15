@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4e02ab225bbff43ac6aea77fd6acee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeMax: 14
-  aceleracao: 2.01
-  alturaPulo: 6
+  velocidadeMax: 15
+  aceleracao: 5
+  alturaPulo: 4.5
   gravidade: 49.9
   vidas: 5
 --- !u!136 &5850026263151525638
@@ -126,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11f2225ac121dc4887ca61315d46853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Moedatxt: {fileID: 0}
   moedasatuais: 0
   Vitoria: {fileID: 0}
 --- !u!1 &7923526218283170557
