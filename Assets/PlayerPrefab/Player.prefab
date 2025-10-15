@@ -53,7 +53,7 @@ MonoBehaviour:
   aceleracao: 5
   alturaPulo: 4.5
   gravidade: 49.9
-  vidas: 5
+  vidas: 20
 --- !u!136 &5850026263151525638
 CapsuleCollider:
   m_ObjectHideFlags: 0

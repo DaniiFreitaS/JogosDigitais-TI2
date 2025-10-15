@@ -32,7 +32,7 @@ public class MoedasCounter : MonoBehaviour
 
     void Update()
     {
-        if (moedasatuais == 10)
+        if (moedasatuais == 30)
         {
             Vitoria.gameObject.SetActive(true);
             Time.timeScale = 0;
