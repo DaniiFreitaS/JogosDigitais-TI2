@@ -17,8 +17,9 @@ public class GameOverScreen : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // só funciona se o Player tiver a tag "Player"
+        if (other.CompareTag("Player")) // sï¿½ funciona se o Player tiver a tag "Player"
         {
+            Debug.Log(gameObject.name);
             PainelG.SetActive(true);
             Time.timeScale = 0;
         }

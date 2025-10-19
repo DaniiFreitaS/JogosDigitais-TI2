@@ -4,7 +4,7 @@ using TMPro;
 public class MoedasCounter : MonoBehaviour
 {
     public static MoedasCounter instance;
-    private TMP_Text Moedatxt;   // agora é privado
+    private TMP_Text Moedatxt;   // agora ï¿½ privado
     public int moedasatuais = 0;
     public GameObject Vitoria;
 
@@ -20,8 +20,8 @@ public class MoedasCounter : MonoBehaviour
         if (textoObj != null)
             Moedatxt = textoObj.GetComponent<TMP_Text>();
 
-        Vitoria = GameObject.Find("Vitoria");
-        Vitoria.SetActive(false);
+      //  Vitoria = GameObject.Find("Vitoria");
+        //Vitoria.SetActive(false);
 
     }
 
@@ -32,9 +32,9 @@ public class MoedasCounter : MonoBehaviour
 
     void Update()
     {
-        if (moedasatuais == 10)
+        if (moedasatuais == 30)
         {
-            Vitoria.gameObject.SetActive(true);
+            //Vitoria.SetActive(true);
             Time.timeScale = 0;
         }
     }
