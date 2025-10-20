@@ -28,6 +28,6 @@ public class PauseMenu : MonoBehaviour
     }
         public void Menu()
     {
-        //SceneManager.LoadScene("Teste");
+        SceneManager.LoadScene("MainMenu");
     }
 }
