@@ -33,12 +33,25 @@ public class PisoSpawner : MonoBehaviour
 
     void SpawnPiso()
     {
-        // Sorteia um piso
+        GameObject novoPiso;
         int index = Random.Range(0, pisos.Length);
-        GameObject novoPiso = Instantiate(pisos[index], new Vector3(proximaPosicaoX, 0, 0), Quaternion.identity);
+        if (proximaPosicaoX == 0f)
+        {
+            novoPiso = Instantiate(pisos[4], new Vector3(proximaPosicaoX, 0, 0), Quaternion.identity);
+        }
+        else {
+            // Sorteia um piso
+            if (index == 1)
+            {
+                proximaPosicaoX -= 2f;
+            }
+            novoPiso = Instantiate(pisos[index], new Vector3(proximaPosicaoX, 0, 0), Quaternion.identity);
+        
+        }
+
 
         Destroy(novoPiso, 10f);
-
+        /*
         // Chance de spawnar obstáculo
         if (Random.value < chanceObstaculo && obstaculos.Length > 0)
         {
@@ -68,7 +81,10 @@ public class PisoSpawner : MonoBehaviour
                 Destroy(moeda, 10f);
             }
         }
-
-        proximaPosicaoX += larguraPiso;
+        */
+        
+        
+         proximaPosicaoX += larguraPiso;
+       
     }
 }

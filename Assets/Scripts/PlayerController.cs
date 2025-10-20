@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movimento;
     private float velocidadeAtual = 0f; // começa parado
 
+
     public int vidas = 20;//vidas do player
 
     void Start()
