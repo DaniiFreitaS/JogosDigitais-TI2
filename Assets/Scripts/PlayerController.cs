@@ -12,7 +12,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 movimento;
     private float velocidadeAtual = 0f; // começa parado
 
-    public int vidas = 20;//vidas do player
+    //mobile
+    private bool tapCima = false;
+    private bool tapBaixo = false;
+
+    public int vidas = 20; //vidas do player
 
     void Start()
     {
@@ -21,10 +25,30 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        DetectarInputMobile();
         Mover();
     }
 
-    
+    void DetectarInputMobile()
+    {
+        // Reset
+        tapCima = false;
+        tapBaixo = false;
+
+        if (Input.touchCount > 0)
+        {
+            Touch toque = Input.GetTouch(0);
+
+            if (toque.phase == TouchPhase.Began)
+            {
+                // Dividindo a tela em cima/baixo
+                if (toque.position.y > Screen.height / 2)
+                    tapCima = true;  // pular
+                else
+                    tapBaixo = true; // queda rápida
+            }
+        }
+    }
 
     void Mover()
     {
@@ -41,7 +65,8 @@ public class PlayerController : MonoBehaviour
         // Movimento vertical (pulo / gravidade)
         if (cc.isGrounded)
         {
-            if (Input.GetKey(KeyCode.Space)) // Pulo
+            // Teclado ou mobile
+            if (Input.GetKey(KeyCode.Space) || tapCima) // Pulo
             {
                 movimento.y = Mathf.Sqrt(2 * gravidade * alturaPulo);
             }
@@ -50,9 +75,16 @@ public class PlayerController : MonoBehaviour
                 movimento.y = -1f; // mantém contato
             }
         }
-        else
+        else // Dash para baixo / queda rápida
         {
-            movimento.y -= gravidade * Time.deltaTime;
+            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl) || tapBaixo)
+            {
+                movimento.y -= gravidade * 5f * Time.deltaTime;
+            }
+            else
+            {
+                movimento.y -= gravidade * Time.deltaTime;
+            }
         }
 
         // Move o player
@@ -83,5 +115,4 @@ public class PlayerController : MonoBehaviour
         transform.position = reset;
         cc.enabled = true;
     }
-
 }

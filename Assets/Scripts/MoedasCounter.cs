@@ -4,25 +4,31 @@ using TMPro;
 public class MoedasCounter : MonoBehaviour
 {
     public static MoedasCounter instance;
-    private TMP_Text Moedatxt;   // agora � privado
+    private TMP_Text Moedatxt;
     public int moedasatuais = 0;
     public GameObject Vitoria;
+    public int moedasParaVitoria = 30; //Podemos definir melhor uma condição de vitoria
+    private bool vitoriaAtivada = false; 
 
     void Awake()
     {
         if (instance == null)
             instance = this;
         else
+        {
             Destroy(gameObject);
+            return; 
+        }
 
-        // procura o objeto pelo nome e pega o TMP_Text
+        // Busca o texto de moedas na HUD
         GameObject textoObj = GameObject.Find("TextoMoedas");
         if (textoObj != null)
             Moedatxt = textoObj.GetComponent<TMP_Text>();
 
-      //  Vitoria = GameObject.Find("Vitoria");
-        //Vitoria.SetActive(false);
-
+        // Busca o objeto de vitória por tag e desativa no início
+        Vitoria = GameObject.FindGameObjectWithTag("Vitoria");
+        if (Vitoria != null)
+            Vitoria.SetActive(false);
     }
 
     void Start()
@@ -32,10 +38,15 @@ public class MoedasCounter : MonoBehaviour
 
     void Update()
     {
-        if (moedasatuais == 30)
+        // Checagem com segurança para ativar só 1 vez
+        if (!vitoriaAtivada && moedasatuais >= moedasParaVitoria)
         {
-            //Vitoria.SetActive(true);
-            Time.timeScale = 0;
+            vitoriaAtivada = true; // Marca que a vitória já foi ativada
+
+            if (Vitoria != null)
+                Vitoria.SetActive(true);
+
+            Time.timeScale = 0; // Pausa o jogo
         }
     }
 
@@ -48,6 +59,6 @@ public class MoedasCounter : MonoBehaviour
     private void AtualizarTexto()
     {
         if (Moedatxt != null)
-            Moedatxt.text = "Moedas: " + moedasatuais.ToString() + "/10";
+            Moedatxt.text = moedasatuais.ToString() + "/" + moedasParaVitoria.ToString();
     }
 }
