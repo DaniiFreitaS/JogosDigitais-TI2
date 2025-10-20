@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         // Movimento horizontal
         movimento.x = velocidadeAtual;
 
-        // Movimento vertical (pulo / gravidade)
+        /// Movimento vertical (pulo / gravidade)
         if (cc.isGrounded)
         {
             if (Input.GetKey(KeyCode.Space)) // Pulo
@@ -51,9 +51,18 @@ public class PlayerController : MonoBehaviour
                 movimento.y = -1f; // mantém contato
             }
         }
-        else
+        else //Dash para baixo
         {
-            movimento.y -= gravidade * Time.deltaTime;
+            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+            {
+                movimento.y -= gravidade * 5f * Time.deltaTime;
+            }
+            else
+            {
+                movimento.y -= gravidade * Time.deltaTime;
+            }
+
+
         }
 
         // Move o player
