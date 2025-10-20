@@ -1020,6 +1020,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4202844039809377166, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
+      propertyPath: m_TagString
+      value: Vitoria
+      objectReference: {fileID: 0}
     - target: {fileID: 5830175757949513102, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
       propertyPath: m_Sprite
       value: 
