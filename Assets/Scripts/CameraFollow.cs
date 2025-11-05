@@ -5,6 +5,7 @@ public class CameraFollow : MonoBehaviour
     private Transform player;
     public float offsetX = 5f;
     public float suavidade = 5f;
+    public float cameraY = 2f;
 
     void Update()
     {
@@ -23,8 +24,14 @@ public class CameraFollow : MonoBehaviour
         // Alvo no eixo X
         float alvoX = player.position.x + offsetX;
 
+        float alvoY = player.position.y;
+        if (cameraY > alvoY) { 
+            alvoY = pos.y;
+        }
         // Suavização
         pos.x = Mathf.Lerp(pos.x, alvoX, Time.deltaTime * suavidade);
+
+        pos.y = Mathf.Lerp(pos.y, alvoY, Time.deltaTime * suavidade);
 
         // Aplica
         transform.position = pos;

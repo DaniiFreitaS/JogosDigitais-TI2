@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("LimiteInf"))
         {
+            Debug.Log("teste vida");
             if (vidas > 1)
             {
                 vidas--;
