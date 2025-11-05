@@ -25,9 +25,9 @@ public class CameraFollow : MonoBehaviour
         float alvoX = player.position.x + offsetX;
 
         float alvoY = player.position.y;
-        if (cameraY > alvoY) { 
-            alvoY = pos.y;
-        }
+        //if (cameraY > alvoY) { 
+        //    alvoY = pos.y;
+       // }
         // Suavização
         pos.x = Mathf.Lerp(pos.x, alvoX, Time.deltaTime * suavidade);
 
