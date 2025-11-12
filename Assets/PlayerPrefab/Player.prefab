@@ -126,8 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11f2225ac121dc4887ca61315d46853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moedasatuais: 1
+  moedasatuais: 30
+  vida: 30
+  vidaMax: 0
+  VidaPerdida: 0
   Vitoria: {fileID: 0}
+  moedasParaVitoria: 90
 --- !u!1001 &344681618270292062
 PrefabInstance:
   m_ObjectHideFlags: 0

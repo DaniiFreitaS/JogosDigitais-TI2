@@ -5,6 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     [Header("Configurações")]
     [SerializeField] private string playSceneName = "GameScene";
+    [SerializeField] private GameObject TutorialPanel;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject creditPanel;
     
@@ -31,6 +32,15 @@ public class MainMenu : MonoBehaviour
     public void CloseCredit()
     {
         creditPanel.SetActive(false);
+    }
+    public void OpenTutorial()
+    {
+        TutorialPanel.SetActive(true);
+    }
+
+    public void CloseTutorial()
+    {
+        TutorialPanel.SetActive(false);
     }
 
     public void QuitGame()
