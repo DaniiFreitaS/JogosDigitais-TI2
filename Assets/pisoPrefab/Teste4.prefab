@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7232459371244098563}
   - component: {fileID: 7215552045505349343}
   m_Layer: 0
-  m_Name: Predio4
+  m_Name: Teste4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
