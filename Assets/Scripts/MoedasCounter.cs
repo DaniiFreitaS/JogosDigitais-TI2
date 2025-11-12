@@ -18,7 +18,7 @@ public class MoedasCounter : MonoBehaviour
 
     void Awake()
     {
-        vidaMax = moedasParaVitoria;
+        vida = moedasatuais;
         VidaPerdida = (int)math.round(moedasParaVitoria / 10);
 
         if (instance == null)
@@ -64,6 +64,12 @@ public class MoedasCounter : MonoBehaviour
         {
             vida = 0;
             AtivarGameOver();
+        }
+        if (vida > vidaMax)
+        {
+            {
+                vida = vidaMax;
+            }
         }
     }
 

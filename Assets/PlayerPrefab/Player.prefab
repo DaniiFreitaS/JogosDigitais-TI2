@@ -126,9 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11f2225ac121dc4887ca61315d46853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moedasatuais: 30
-  vida: 30
-  vidaMax: 0
+  moedasatuais: 29
+  vida: 25
+  vidaMax: 31
   VidaPerdida: 0
   Vitoria: {fileID: 0}
   moedasParaVitoria: 90

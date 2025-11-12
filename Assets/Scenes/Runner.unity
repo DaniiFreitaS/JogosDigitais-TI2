@@ -342,7 +342,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.999999
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -480,7 +480,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.5, y: 13, z: -30}
+  m_LocalPosition: {x: 19.5, y: 3.99, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -772,17 +772,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pisos:
-  - {fileID: 4200820637666439205, guid: 85a65b81b2aa76b498328bb556fa55ee, type: 3}
-  - {fileID: 6389070399448864335, guid: e04178f6bdc79dc40bb3216d22293e98, type: 3}
-  - {fileID: 2441370886231036806, guid: 74ad82c20519f284795459655cb4cbfd, type: 3}
-  - {fileID: 3284412298896422447, guid: 92694425ff4425744b7bf7cac3b741f9, type: 3}
-  - {fileID: 4200820637666439205, guid: 8d04997327a842943ba5e3a05a515347, type: 3}
-  - {fileID: 6389070399448864335, guid: 34c97ed6a25735347ae9213299a8ae72, type: 3}
-  - {fileID: 2441370886231036806, guid: 3c9aa9c2d1c0f7f448073d8d58197191, type: 3}
-  - {fileID: 3284412298896422447, guid: 02061a128cad79247bb87b16680baccf, type: 3}
+  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
+  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
+  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
+  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
+  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
+  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
+  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
+  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
   obstaculos:
   - {fileID: 2204837498651186538, guid: 27f0bf71516c242489c3cbd67e0f8b74, type: 3}
-  larguraPiso: 14
+  larguraPiso: 70
   cameraRef: {fileID: 330585546}
   chanceObstaculo: 0
   moedaPrefab: {fileID: 3353787764907514990, guid: 3c1e8b8f1b1bc1c4d9f99fd961beb076, type: 3}
@@ -814,7 +814,7 @@ Transform:
   m_GameObject: {fileID: 429200194}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.2, y: -16.9, z: 18.599998}
+  m_LocalPosition: {x: -8.4, y: -16.1, z: 18.599998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0.999999
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2122,7 +2122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4202844039809377166, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4202844039809377166, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
       propertyPath: m_TagString
@@ -2188,6 +2188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8753088216569451500, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
+      propertyPath: PainelG
+      value: 
+      objectReference: {fileID: 1891938987}
     - target: {fileID: 8753088216569451500, guid: ded6997ee26f2b84b971d160123d6da4, type: 3}
       propertyPath: m_Enabled
       value: 1

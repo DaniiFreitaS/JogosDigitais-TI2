@@ -50,7 +50,7 @@ public class PisoSpawner : MonoBehaviour
         }
 
 
-        Destroy(novoPiso, 10f);
+        Destroy(novoPiso, 40f);
         /*
         // Chance de spawnar obstáculo
         if (Random.value < chanceObstaculo && obstaculos.Length > 0)
