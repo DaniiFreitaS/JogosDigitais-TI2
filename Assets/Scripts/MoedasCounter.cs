@@ -1,34 +1,44 @@
 using UnityEngine;
 using TMPro;
+using Unity.Mathematics;
 
 public class MoedasCounter : MonoBehaviour
 {
     public static MoedasCounter instance;
     private TMP_Text Moedatxt;
+
     public int moedasatuais = 0;
+
+    public int vida = 30, vidaMax, VidaPerdida;
     public GameObject Vitoria;
-    public int moedasParaVitoria = 30; //Podemos definir melhor uma condição de vitoria
-    private bool vitoriaAtivada = false; 
+    public int moedasParaVitoria = 100; // Condição de vitória
+    private bool vitoriaAtivada = false;
+
+    private GameOverScreen gameOverScreen; // 👈 referência para o script GameOverScreen
 
     void Awake()
     {
+        vidaMax = moedasParaVitoria;
+        VidaPerdida = (int)math.round(moedasParaVitoria / 10);
+
         if (instance == null)
             instance = this;
         else
         {
             Destroy(gameObject);
-            return; 
+            return;
         }
 
-        // Busca o texto de moedas na HUD
         GameObject textoObj = GameObject.Find("TextoMoedas");
         if (textoObj != null)
             Moedatxt = textoObj.GetComponent<TMP_Text>();
 
-        // Busca o objeto de vitória por tag e desativa no início
         Vitoria = GameObject.FindGameObjectWithTag("Vitoria");
         if (Vitoria != null)
             Vitoria.SetActive(false);
+
+        // 👇 tenta achar o GameOverScreen na cena
+        gameOverScreen = FindObjectOfType<GameOverScreen>();
     }
 
     void Start()
@@ -38,27 +48,68 @@ public class MoedasCounter : MonoBehaviour
 
     void Update()
     {
-        // Checagem com segurança para ativar só 1 vez
+        // Condição de vitória
         if (!vitoriaAtivada && moedasatuais >= moedasParaVitoria)
         {
-            vitoriaAtivada = true; // Marca que a vitória já foi ativada
+            vitoriaAtivada = true;
 
             if (Vitoria != null)
                 Vitoria.SetActive(true);
 
-            Time.timeScale = 0; // Pausa o jogo
+            Time.timeScale = 0;
+        }
+
+        // 👇 Condição de derrota
+        if (vida <= 0)
+        {
+            vida = 0;
+            AtivarGameOver();
         }
     }
 
     public void AumentoDeMoedas(int v)
     {
         moedasatuais += v;
+        if (vida < vidaMax)
+            vida += v;
+
         AtualizarTexto();
     }
 
     private void AtualizarTexto()
     {
         if (Moedatxt != null)
-            Moedatxt.text = moedasatuais.ToString() + "/" + moedasParaVitoria.ToString();
+            Moedatxt.text = moedasatuais + "/" + moedasParaVitoria;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            vida -= VidaPerdida;
+            moedasatuais -= VidaPerdida;
+
+            if (vida < 0) vida = 0;
+            if (moedasatuais < 0) moedasatuais = 0;
+
+            AtualizarTexto();
+
+            if (vida <= 0)
+                AtivarGameOver();
+        }
+    }
+
+    // 👇 Função para ativar o painel de Game Over
+    private void AtivarGameOver()
+    {
+        if (gameOverScreen != null && gameOverScreen.PainelG != null)
+        {
+            gameOverScreen.PainelG.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ GameOverScreen ou PainelG não encontrados!");
+        }
     }
 }
