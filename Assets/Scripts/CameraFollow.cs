@@ -24,7 +24,7 @@ public class CameraFollow : MonoBehaviour
         // Alvo no eixo X
         float alvoX = player.position.x + offsetX;
 
-        float alvoY = player.position.y;
+        float alvoY = player.position.y +5f;
         //if (cameraY > alvoY) { 
         //    alvoY = pos.y;
        // }
