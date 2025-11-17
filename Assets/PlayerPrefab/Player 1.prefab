@@ -53,7 +53,14 @@ MonoBehaviour:
   aceleracao: 5
   alturaPulo: 4.5
   gravidade: 49.9
-  vidas: 20
+  Vitoria: {fileID: 0}
+  moedas: 0
+  vida: 30
+  vidaMax: 30
+  moedasParaVitoria: 100
+  VidaPerdida: 0
+  duracaoTurbo: 5
+  duracaoEscudo: 7
 --- !u!136 &5850026263151525638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -121,7 +128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425629024332648833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e11f2225ac121dc4887ca61315d46853, type: 3}
   m_Name: 

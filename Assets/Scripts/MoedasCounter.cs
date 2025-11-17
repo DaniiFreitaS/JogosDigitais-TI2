@@ -7,24 +7,18 @@ public class MoedasCounter : MonoBehaviour
     public static MoedasCounter instance;
     private TMP_Text Moedatxt;
 
-    [Header("Moedas da Fase")]
-    public int moedasatuais = 0;         
-
-    [Header("Vida do Jogador")]
-    public int vida = 30;                
-    public int vidaMax = 30;             
-    public int VidaPerdida;              
-
-    [Header("Sistema de Vitória")]
+    public int moedasatuais = 0;
+    public int vida = 30, vidaMax = 30; // vidaMax inicializada para segurança
+    public int VidaPerdida;
     public GameObject Vitoria;
-    public int moedasParaVitoria = 100;
+    public int moedasParaVitoria = 100; // Condição de vitória
     private bool vitoriaAtivada = false;
 
     private GameOverScreen gameOverScreen;
 
     void Awake()
     {
-        // Singleton
+        // Padrão Singleton
         if (instance == null)
             instance = this;
         else
@@ -33,24 +27,18 @@ public class MoedasCounter : MonoBehaviour
             return;
         }
 
-        // Vida Máxima não pode ser 0
-        if (vidaMax <= 0)
-            vidaMax = vida;
-
-        // Cálculo correto da perca de vida
+        // Cálculo do dano (corrigido para usar float)
         VidaPerdida = (int)math.round((float)moedasParaVitoria / 10f);
+        if (vidaMax == 0) vidaMax = vida;
 
-        // Texto
         GameObject textoObj = GameObject.Find("TextoMoedas");
         if (textoObj != null)
             Moedatxt = textoObj.GetComponent<TMP_Text>();
 
-        // Vitória
         Vitoria = GameObject.FindGameObjectWithTag("Vitoria");
         if (Vitoria != null)
             Vitoria.SetActive(false);
 
-        // Game Over
         gameOverScreen = FindObjectOfType<GameOverScreen>();
     }
 
@@ -61,7 +49,7 @@ public class MoedasCounter : MonoBehaviour
 
     void Update()
     {
-        // Vitória
+        // Condição de vitória
         if (!vitoriaAtivada && moedasatuais >= moedasParaVitoria)
         {
             vitoriaAtivada = true;
@@ -69,53 +57,52 @@ public class MoedasCounter : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        // Derrota
+        // Condição de derrota / Limite de vida
         if (vida <= 0)
         {
             vida = 0;
             AtivarGameOver();
         }
-
         if (vida > vidaMax)
+        {
             vida = vidaMax;
+        }
     }
 
-    // GANHA MOEDAS
     public void AumentoDeMoedas(int v)
     {
-        // Adiciona moedas permanentes da Loja (mantido do seu sistema)
-        if (Loja.instance != null)
-            Loja.instance.AdicionarStoreCoins(v);
-
-        // Moedas da fase
         moedasatuais += v;
-
         if (vida < vidaMax)
             vida += v;
 
         AtualizarTexto();
     }
 
-    // APLICA DANO (chamado por inimigos / eventos / PlayerController)
-    public void AplicarDano()
+    // MÉTODO PÚBLICO CHAMADO PELO PLAYERCONTROLLER AO TOMAR DANO
+    // Retorna true se o jogo terminar (Game Over)
+    public bool AplicarDano()
     {
-        moedasatuais -= VidaPerdida;
-        if (moedasatuais < 0) moedasatuais = 0;
-
         vida -= VidaPerdida;
+        moedasatuais -= VidaPerdida;
+
         if (vida < 0) vida = 0;
+        if (moedasatuais < 0) moedasatuais = 0;
 
         AtualizarTexto();
 
         if (vida <= 0)
+        {
             AtivarGameOver();
+            return true; // É Game Over
+        }
+        return false; // Não é Game Over
     }
 
     private void AtualizarTexto()
     {
         if (Moedatxt != null)
-            Moedatxt.text = "Moedas: " + moedasatuais + "/" + moedasParaVitoria +
-                            " | Vida: " + vida + "/" + vidaMax;
+            // Formato corrigido para exibir todas as métricas sem conflito
+            Moedatxt.text = "Moedas: " + moedasatuais + "/" + moedasParaVitoria + " | Vidas: " + vida + "/" + vidaMax;
     }
 
     private void AtivarGameOver()
