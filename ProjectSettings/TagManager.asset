@@ -8,6 +8,7 @@ TagManager:
   - LimiteInf
   - Enemy
   - Vitoria
+  - StoreCoinsText
   layers:
   - Default
   - TransparentFX
