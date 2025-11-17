@@ -8,7 +8,10 @@ TagManager:
   - LimiteInf
   - Enemy
   - Vitoria
-  - StoreCoinsText
+  - Tile
+  - PowerUpEscudo
+  - PowerUpVelocidade
+  - Coin
   layers:
   - Default
   - TransparentFX

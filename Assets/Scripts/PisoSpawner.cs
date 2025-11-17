@@ -82,9 +82,12 @@ public class PisoSpawner : MonoBehaviour
             }
         }
         */
-        
-        
-         proximaPosicaoX += larguraPiso;
-       
+
+        TileTAG pisoTamanho = pisos[index].GetComponentInChildren<TileTAG>();
+        float beco = Random.Range(5, 10f);
+        Debug.Log(beco);
+        proximaPosicaoX += pisoTamanho.GetComponent<Renderer>().bounds.size.x + beco;
+
+
     }
 }
