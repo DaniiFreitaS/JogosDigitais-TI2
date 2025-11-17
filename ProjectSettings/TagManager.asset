@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - Vitoria
   - Tile
+  - PowerUpEscudo
+  - PowerUpVelocidade
+  - Coin
   layers:
   - Default
   - TransparentFX

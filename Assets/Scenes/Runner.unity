@@ -772,14 +772,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pisos:
-  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
-  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
-  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
-  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
-  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
-  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
-  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
-  - {fileID: 4200820637666439205, guid: 677ec1a33c3d97546a38295658a5f259, type: 3}
+  - {fileID: 4200820637666439205, guid: 51178225277a7e940b97fb5ea9f3c566, type: 3}
+  - {fileID: 4200820637666439205, guid: d57048845aa822342bd76b7e3a349482, type: 3}
+  - {fileID: 4200820637666439205, guid: ff9dbba29ab22024b939e1f5bd200263, type: 3}
+  - {fileID: 4200820637666439205, guid: 6e984359f0bedfd479c7e19b204bbd37, type: 3}
+  - {fileID: 4200820637666439205, guid: 51178225277a7e940b97fb5ea9f3c566, type: 3}
+  - {fileID: 4200820637666439205, guid: ff9dbba29ab22024b939e1f5bd200263, type: 3}
+  - {fileID: 4200820637666439205, guid: d57048845aa822342bd76b7e3a349482, type: 3}
+  - {fileID: 4200820637666439205, guid: d57048845aa822342bd76b7e3a349482, type: 3}
   obstaculos:
   - {fileID: 2204837498651186538, guid: 27f0bf71516c242489c3cbd67e0f8b74, type: 3}
   larguraPiso: 70
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429200194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87b6b642c4dac16448c79145758e0278, type: 3}
   m_Name: 
