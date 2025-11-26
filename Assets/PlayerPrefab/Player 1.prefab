@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9184088870296555561}
   - component: {fileID: 6939609480919186917}
   - component: {fileID: 1441205608476877458}
+  - component: {fileID: 5037071133636355038}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -133,6 +134,19 @@ MonoBehaviour:
   VidaPerdida: 0
   Vitoria: {fileID: 0}
   moedasParaVitoria: 10
+--- !u!114 &5037071133636355038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425629024332648833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd70e364c89a684783756333e03390f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxPrefab: {fileID: 475281234178822017, guid: e40a7c3a23b2b7743b7e25881b53cb01, type: 3}
 --- !u!1001 &344681618270292062
 PrefabInstance:
   m_ObjectHideFlags: 0

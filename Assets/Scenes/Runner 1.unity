@@ -168,7 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f78a5c4121d59f4c9e66dff65632595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerprefab: {fileID: 1425629024332648833, guid: d8a9453400263d64e92fc3578a8083fb, type: 3}
+  playerP1: {fileID: 0}
+  playerP2: {fileID: 0}
+  playerP3: {fileID: 0}
   tela: {fileID: 368181075}
 --- !u!1 &330585543
 GameObject:

@@ -923,11 +923,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 7e98d4cf-c151-45aa-8c1c-ace3bde54cab
+  cloudProjectId: d04dd422-0288-43ca-b80a-ae6703dc49e5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TI2
-  organizationId: daniifreitas
+  projectName: TI2-Project
+  organizationId: fuinhazinhaalada
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
