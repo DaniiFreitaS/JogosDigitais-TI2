@@ -56,6 +56,7 @@ MonoBehaviour:
   gravidade: 49.9
   duracaoTurbo: 5
   duracaoEscudo: 7
+  vfxMoedas: {fileID: 475281234178822017, guid: e40a7c3a23b2b7743b7e25881b53cb01, type: 3}
 --- !u!136 &5850026263151525638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -129,11 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moedasatuais: 29
+  moedasParaVitoria: 10
   vida: 25
   vidaMax: 31
-  VidaPerdida: 0
-  Vitoria: {fileID: 0}
-  moedasParaVitoria: 10
 --- !u!114 &5037071133636355038
 MonoBehaviour:
   m_ObjectHideFlags: 0
