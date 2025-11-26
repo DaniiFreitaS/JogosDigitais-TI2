@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
     private bool escudoAtivo = false;
     private float tempoEscudoRestante = 0f;
 
+    //Pra colocar o prefab do vfx no inspector
+    [Header("VFX")]
+    [SerializeField] private GameObject vfxMoedas;
+
+
 
     void Awake()
     {
@@ -186,6 +191,31 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Dano bloqueado pelo Escudo!");
                 return;
             }
+
+        // Lógica de Dano (Enemy ou LimiteInferior)
+        if (other.CompareTag("Enemy") || other.CompareTag("LimiteInf"))
+        {
+                // Se tiver escudo
+             if (escudoAtivo)
+            {
+                if (other.CompareTag("LimiteInf"))
+                 {
+                    ResetPos();
+                 }
+                Debug.Log("Dano bloqueado pelo Escudo!");
+                return;
+            }
+
+            if (vfxMoedas != null)
+            {
+                Instantiate(
+                vfxMoedas,
+                transform.position + new Vector3(0, 1f, 0), // levemente acima do player
+                Quaternion.identity );
+            }
+            return;
+        }
+
 
             // 1. Chama o MoedasCounter para aplicar o dano e verificar Game Over
             bool isGameOver = MoedasCounter.instance.AplicarDano();
