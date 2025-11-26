@@ -5,20 +5,25 @@ using Unity.Mathematics;
 public class MoedasCounter : MonoBehaviour
 {
     public static MoedasCounter instance;
+
+    [Header("UI")]
     private TMP_Text Moedatxt;
-
-    public int moedasatuais = 0;
-    public int vida = 30, vidaMax = 30; // vidaMax inicializada para segurança
-    public int VidaPerdida;
-    public GameObject Vitoria;
-    public int moedasParaVitoria = 100; // Condição de vitória
-    private bool vitoriaAtivada = false;
-
     private GameOverScreen gameOverScreen;
+    private GameObject Vitoria;
+
+    [Header("Valores do Jogo")]
+    public int moedasatuais = 0;
+    public int moedasParaVitoria = 100;
+
+    public int vida = 30;
+    public int vidaMax = 30;
+    private int VidaPerdida;
+
+    private bool vitoriaAtivada = false;
 
     void Awake()
     {
-        // Padrão Singleton
+        // Singleton seguro
         if (instance == null)
             instance = this;
         else
@@ -27,59 +32,86 @@ public class MoedasCounter : MonoBehaviour
             return;
         }
 
-        // Cálculo do dano (corrigido para usar float)
-        VidaPerdida = (int)math.round((float)moedasParaVitoria / 10f);
-        if (vidaMax == 0) vidaMax = vida;
+        // Proteções contra valores inválidos do Inspector
+        if (vidaMax <= 0) vidaMax = vida;
+        if (vida <= 0) vida = vidaMax;
+        if (moedasParaVitoria <= 0) moedasParaVitoria = 10;
 
+        // Define o dano proporcional
+        VidaPerdida = Mathf.Max(1, (int)math.round((float)moedasParaVitoria / 10f));
+
+        // Localiza o texto das moedas (opcional)
         GameObject textoObj = GameObject.Find("TextoMoedas");
         if (textoObj != null)
             Moedatxt = textoObj.GetComponent<TMP_Text>();
+        else
+            Debug.LogWarning("⚠ TextoMoedas não encontrado na cena!");
 
+        // Painel de vitória
         Vitoria = GameObject.FindGameObjectWithTag("Vitoria");
         if (Vitoria != null)
             Vitoria.SetActive(false);
+        else
+            Debug.LogWarning("⚠ Objeto com tag 'Vitoria' não encontrado!");
 
+        // Game Over
         gameOverScreen = FindObjectOfType<GameOverScreen>();
+        if (gameOverScreen == null)
+            Debug.LogWarning("⚠ GameOverScreen não encontrado na cena!");
     }
 
     void Start()
     {
+        // Garante que o jogo não comece pausado
+        Time.timeScale = 1;
         AtualizarTexto();
     }
 
     void Update()
     {
-        // Condição de vitória
-        if (!vitoriaAtivada && moedasatuais >= moedasParaVitoria)
+        ChecarVitoria();
+        ChecarDerrota();
+    }
+
+    private void ChecarVitoria()
+    {
+        if (vitoriaAtivada) return;
+
+        if (moedasatuais >= moedasParaVitoria)
         {
             vitoriaAtivada = true;
-            if (Vitoria != null) Vitoria.SetActive(true);
+
+            if (Vitoria != null)
+                Vitoria.SetActive(true);
+            else
+                Debug.LogWarning("⚠ Vitória ativada mas o painel está ausente!");
+
             Time.timeScale = 0;
         }
+    }
 
-        // Condição de derrota / Limite de vida
+    private void ChecarDerrota()
+    {
         if (vida <= 0)
         {
             vida = 0;
             AtivarGameOver();
         }
+
         if (vida > vidaMax)
-        {
             vida = vidaMax;
-        }
     }
 
     public void AumentoDeMoedas(int v)
     {
-        moedasatuais += v;
+        moedasatuais += Mathf.Max(0, v);
+
         if (vida < vidaMax)
             vida += v;
 
         AtualizarTexto();
     }
 
-    // MÉTODO PÚBLICO CHAMADO PELO PLAYERCONTROLLER AO TOMAR DANO
-    // Retorna true se o jogo terminar (Game Over)
     public bool AplicarDano()
     {
         vida -= VidaPerdida;
@@ -93,16 +125,18 @@ public class MoedasCounter : MonoBehaviour
         if (vida <= 0)
         {
             AtivarGameOver();
-            return true; // É Game Over
+            return true;
         }
-        return false; // Não é Game Over
+        return false;
     }
 
     private void AtualizarTexto()
     {
         if (Moedatxt != null)
-            // Formato corrigido para exibir todas as métricas sem conflito
-            Moedatxt.text = "Moedas: " + moedasatuais + "/" + moedasParaVitoria + " | Vidas: " + vida + "/" + vidaMax;
+        {
+            Moedatxt.text =
+                $"Moedas: {moedasatuais}/{moedasParaVitoria} | Vidas: {vida}/{vidaMax}";
+        }
     }
 
     private void AtivarGameOver()
@@ -114,7 +148,7 @@ public class MoedasCounter : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("⚠️ GameOverScreen ou PainelG não encontrados!");
+            Debug.LogWarning("⚠ Não foi possível ativar o Game Over! Objetos ausentes.");
         }
     }
 }

@@ -122,17 +122,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425629024332648833}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e11f2225ac121dc4887ca61315d46853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moedasatuais: 29
+  moedasatuais: 0
+  moedasParaVitoria: 90
   vida: 25
   vidaMax: 31
-  VidaPerdida: 0
-  Vitoria: {fileID: 0}
-  moedasParaVitoria: 90
 --- !u!1001 &344681618270292062
 PrefabInstance:
   m_ObjectHideFlags: 0
