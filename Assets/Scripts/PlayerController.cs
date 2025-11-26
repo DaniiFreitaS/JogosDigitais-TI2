@@ -179,6 +179,10 @@ public class PlayerController : MonoBehaviour
             // O escudo só precisa ser verificado aqui, pois impede a chamada ao AplicarDano
             if (escudoAtivo)
             {
+                if (other.CompareTag("LimiteInf"))
+                {
+                    ResetPos();
+                }
                 Debug.Log("Dano bloqueado pelo Escudo!");
                 return;
             }
