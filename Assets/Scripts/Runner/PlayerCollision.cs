@@ -13,7 +13,7 @@ public class PlayerCollision : MonoBehaviour
         movimento = GetComponent<PlayerMovement>();
         powerups = GetComponent<PlayerPowerUps>();
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         // Power-ups
@@ -34,11 +34,12 @@ public class PlayerCollision : MonoBehaviour
         // Dano / inimigo / cair no buraco
         if (other.CompareTag("Enemy") || other.CompareTag("LimiteInf"))
         {
+            Debug.Log(other.tag);
             if (powerups.EscudoAtivo)
             {
                 // escudo bloqueia dano
                 if (other.CompareTag("LimiteInf"))
-                    movimento.ResetPos();
+                    //movimento.ResetPos();
 
                 Debug.Log("Dano bloqueado pelo Escudo!");
                 return;
@@ -52,7 +53,7 @@ public class PlayerCollision : MonoBehaviour
             bool gameOver = MoedasCounter.instance.AplicarDano();
 
             if (!gameOver)
-                movimento.ResetPos();
+                //movimento.ResetPos();
 
             return;
         }
@@ -64,4 +65,6 @@ public class PlayerCollision : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    */
 }
+

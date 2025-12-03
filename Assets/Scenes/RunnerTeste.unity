@@ -882,7 +882,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 262809029}
-  - {fileID: 421052523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &396444022
@@ -1086,6 +1085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421052523}
   - component: {fileID: 421052524}
+  - component: {fileID: 421052525}
   m_Layer: 0
   m_Name: SpawnPiso
   m_TagString: Untagged
@@ -1102,11 +1102,11 @@ Transform:
   m_GameObject: {fileID: 421052521}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: -10, z: 0}
+  m_LocalPosition: {x: 900, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 368181075}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &421052524
 MonoBehaviour:
@@ -1115,27 +1115,39 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421052521}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f4b65c1b4597a042b66053f3c43526a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5805cb214b587464f9c44380f69e926e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pisos:
-  - {fileID: 4200820637666439205, guid: 51178225277a7e940b97fb5ea9f3c566, type: 3}
-  - {fileID: 4200820637666439205, guid: d57048845aa822342bd76b7e3a349482, type: 3}
-  - {fileID: 4200820637666439205, guid: ff9dbba29ab22024b939e1f5bd200263, type: 3}
-  - {fileID: 4200820637666439205, guid: 6e984359f0bedfd479c7e19b204bbd37, type: 3}
-  - {fileID: 4200820637666439205, guid: 51178225277a7e940b97fb5ea9f3c566, type: 3}
-  - {fileID: 4200820637666439205, guid: ff9dbba29ab22024b939e1f5bd200263, type: 3}
-  - {fileID: 4200820637666439205, guid: d57048845aa822342bd76b7e3a349482, type: 3}
-  - {fileID: 4200820637666439205, guid: d57048845aa822342bd76b7e3a349482, type: 3}
-  obstaculos:
-  - {fileID: 2204837498651186538, guid: 27f0bf71516c242489c3cbd67e0f8b74, type: 3}
-  larguraPiso: 70
-  cameraRef: {fileID: 330585546}
-  chanceObstaculo: 0
-  moedaPrefab: {fileID: 3353787764907514990, guid: 3c1e8b8f1b1bc1c4d9f99fd961beb076, type: 3}
-  chanceMoeda: 0
+  - {fileID: 8187784412440250582, guid: d16be399fece68d4395c6004cf24451b, type: 3}
+  - {fileID: 8187784412440250582, guid: d16be399fece68d4395c6004cf24451b, type: 3}
+  - {fileID: 8187784412440250582, guid: d16be399fece68d4395c6004cf24451b, type: 3}
+  - {fileID: 8187784412440250582, guid: d16be399fece68d4395c6004cf24451b, type: 3}
+  spawnPoint: {fileID: 421052523}
+  tileLength: 1000
+--- !u!65 &421052525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421052521}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13, y: 60.33, z: 102.29}
+  m_Center: {x: 0, y: 48.61, z: 17.8}
 --- !u!1001 &427168116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1404,6 +1416,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &754222866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8187784412440250582, guid: d16be399fece68d4395c6004cf24451b, type: 3}
+  m_PrefabInstance: {fileID: 4345569865133591104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &768163543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3016,9 +3033,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 304721177300194744, guid: d16be399fece68d4395c6004cf24451b, type: 3}
+      propertyPath: pisos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 304721177300194744, guid: d16be399fece68d4395c6004cf24451b, type: 3}
+      propertyPath: 'pisos.Array.data[1]'
+      value: 
+      objectReference: {fileID: 754222866}
     - target: {fileID: 1187591019052044280, guid: d16be399fece68d4395c6004cf24451b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 454.17
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 1187591019052044280, guid: d16be399fece68d4395c6004cf24451b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3054,6 +3079,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1187591019052044280, guid: d16be399fece68d4395c6004cf24451b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769450902416638017, guid: d16be399fece68d4395c6004cf24451b, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8187784412440250582, guid: d16be399fece68d4395c6004cf24451b, type: 3}
@@ -3375,3 +3404,4 @@ SceneRoots:
   - {fileID: 298222666}
   - {fileID: 427168116}
   - {fileID: 4345569865133591104}
+  - {fileID: 421052523}
