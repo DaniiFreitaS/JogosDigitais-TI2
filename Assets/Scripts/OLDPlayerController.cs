@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 // Não precisa mais de TMPro e Unity.Mathematics, a não ser que sejam usados para power-ups.
 
 [RequireComponent(typeof(CharacterController))]
@@ -235,3 +235,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+*/
