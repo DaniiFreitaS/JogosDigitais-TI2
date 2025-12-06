@@ -13,7 +13,7 @@ public class PlayerCollision : MonoBehaviour
         movimento = GetComponent<PlayerMovement>();
         powerups = GetComponent<PlayerPowerUps>();
     }
-    /*
+    
     private void OnTriggerEnter(Collider other)
     {
         // Power-ups
@@ -65,6 +65,6 @@ public class PlayerCollision : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-    */
+    
 }
 
