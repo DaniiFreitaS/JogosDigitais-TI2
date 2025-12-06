@@ -1344,10 +1344,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 2101179917}
   m_HandleRect: {fileID: 1551599849}
   m_Direction: 0
-  m_MinValue: 0.0001
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2308,7 +2308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2820faf27359c2b48852bafb190cdbf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSceneName: Runner
+  playSceneName: RunnerTeste
   TutorialPanel: {fileID: 1682246766}
   optionsPanel: {fileID: 498113924}
   creditPanel: {fileID: 1098780514}
@@ -4028,8 +4028,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1419489329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.49995, y: 0}
-  m_AnchorMax: {x: 0.49995, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5251,7 +5251,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.49995
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

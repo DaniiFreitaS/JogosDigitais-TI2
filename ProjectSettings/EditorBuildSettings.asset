@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ec06f80efdff8b348967b9a18d916110
   - enabled: 1
+    path: Assets/Scenes/RunnerTeste.unity
+    guid: 291993644fed2a545ba5018ded36ccc9
+  - enabled: 1
     path: Assets/Scenes/Runner.unity
     guid: 34acdeed18bef3b4baf1aadfa5b922dc
   - enabled: 0
