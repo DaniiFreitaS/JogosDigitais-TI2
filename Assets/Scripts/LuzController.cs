@@ -13,7 +13,7 @@ public class LuzController : MonoBehaviour
             reset.x = 220f;
         }
         
-        transform.rotation = reset;
+        //transform.rotation = reset;
     }
 
     // Update is called once per frame

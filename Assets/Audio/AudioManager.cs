@@ -35,19 +35,18 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.clip = menu;
         }
-        else if (cena.name == "Runner")
+        else if (cena.name == "RunnerTeste")
         {
             musicSource.clip = background;
         }
 
         musicSource.Play();
     }
-
-        // adiciona no AudioManager (única função nova)
-        public void PlaySFX(AudioClip clip)
-        {
-            if (SFXSource == null || clip == null) return;
-            SFXSource.PlayOneShot(clip);
-        }
+    // adiciona no AudioManager (única função nova)
+    public void PlaySFX(AudioClip clip)
+    {
+        if (SFXSource == null || clip == null) return;
+        SFXSource.PlayOneShot(clip);
+    }
 
 }

@@ -9,14 +9,11 @@ public class PlayerCollision : MonoBehaviour
     private PlayerPowerUps powerups;
     private AudioManager audioManager;
 
-
     private void Awake()
     {
         movimento = GetComponent<PlayerMovement>();
         powerups = GetComponent<PlayerPowerUps>();
         audioManager = FindObjectOfType<AudioManager>();
-
-
     }
     
     private void OnTriggerEnter(Collider other)
@@ -44,7 +41,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 // escudo bloqueia dano
                 if (other.CompareTag("LimiteInf"))
-                    //movimento.ResetPos();
+                    ; // movimento.ResetPos(); (comentado no seu código)
 
                 Debug.Log("Dano bloqueado pelo Escudo!");
                 return;
@@ -57,12 +54,11 @@ public class PlayerCollision : MonoBehaviour
             if (audioManager != null)
                 audioManager.PlaySFX(audioManager.coinDrop);
 
-
             // aplica dano no sistema
             bool gameOver = MoedasCounter.instance.AplicarDano();
 
             if (!gameOver)
-                //movimento.ResetPos();
+                ; // movimento.ResetPos(); (comentado no seu código)
 
             return;
         }
@@ -71,9 +67,11 @@ public class PlayerCollision : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             MoedasCounter.instance.AumentoDeMoedas(1);
+
+            if (audioManager != null)
+                audioManager.PlaySFX(audioManager.coin);
+
             Destroy(other.gameObject);
         }
     }
-    
 }
-
