@@ -848,6 +848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368181075}
   - component: {fileID: 368181074}
+  - component: {fileID: 368181076}
   m_Layer: 0
   m_Name: Tela
   m_TagString: Untagged
@@ -884,6 +885,19 @@ Transform:
   - {fileID: 262809029}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &368181076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368181073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c993a93b256b51f458f8de17e7fa333a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  painelGameOver: {fileID: 1891938987}
 --- !u!1001 &396444022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1254,7 +1268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b6b642c4dac16448c79145758e0278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PainelG: {fileID: 1891938987}
 --- !u!65 &429200197
 BoxCollider:
   m_ObjectHideFlags: 0
