@@ -34,15 +34,11 @@ public class PlayerCollision : MonoBehaviour
         }
 
         // Dano / inimigo / cair no buraco
-        if (other.CompareTag("Enemy") || other.CompareTag("LimiteInf"))
+        if (other.CompareTag("Enemy"))
         {
-            Debug.Log(other.tag);
             if (powerups.EscudoAtivo)
             {
                 // escudo bloqueia dano
-                if (other.CompareTag("LimiteInf"))
-                    ; // movimento.ResetPos(); (comentado no seu código)
-
                 Debug.Log("Dano bloqueado pelo Escudo!");
                 return;
             }
@@ -57,10 +53,17 @@ public class PlayerCollision : MonoBehaviour
             // aplica dano no sistema
             bool gameOver = MoedasCounter.instance.AplicarDano();
 
-            if (!gameOver)
-                ; // movimento.ResetPos(); (comentado no seu código)
+            if (gameOver)
+            {
+                Debug.Log("TEste Game over Chamado");
+            }
 
             return;
+        }
+
+        if (other.CompareTag("LimiteInf"))
+        {
+            MoedasCounter.instance.AtivarGameOver();
         }
 
         // Coleta de moedas
