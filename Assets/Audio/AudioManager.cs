@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip coin;
     public AudioClip coinDrop;
     public AudioClip button;
+    public AudioClip slider;
 
     private void Awake()
     {
