@@ -137,7 +137,7 @@ public class MoedasCounter : MonoBehaviour
         if (Moedatxt != null)
         {
             Moedatxt.text =
-                $"Moedas: {moedasatuais}/{moedasParaVitoria} | Vidas: {vida}/{vidaMax}";
+                $"Moedas: {moedasatuais}";
         }
     }
 

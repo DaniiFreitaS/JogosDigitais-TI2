@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11f2225ac121dc4887ca61315d46853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moedasatuais: 29
+  moedasatuais: 0
   moedasParaVitoria: 0
   vida: 25
   vidaMax: 31
@@ -146,6 +146,10 @@ MonoBehaviour:
   aceleracao: 13.9
   alturaPulo: 8.79
   gravidade: 57.2
+  animator: {fileID: 0}
+  animacaoCorrida: {fileID: 0}
+  animacaoLanding: {fileID: 0}
+  animacaoHit: {fileID: 0}
 --- !u!114 &5409161138520553954
 MonoBehaviour:
   m_ObjectHideFlags: 0
