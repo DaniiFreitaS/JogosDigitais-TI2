@@ -1218,6 +1218,7 @@ MonoBehaviour:
   coinDrop: {fileID: 8300000, guid: 938ad385e1dddff4897c85ebc330a94e, type: 3}
   button: {fileID: 8300000, guid: 8f5c94cc69c0e9945848e04314547e43, type: 3}
   slider: {fileID: 8300000, guid: f86ca184228cd464486eff64fe9102e2, type: 3}
+  birdChirp: {fileID: 8300000, guid: e6faf7adbe0f58b428b6671454521466, type: 3}
 --- !u!4 &458629131
 Transform:
   m_ObjectHideFlags: 0
