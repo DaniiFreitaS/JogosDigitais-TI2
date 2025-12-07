@@ -1740,7 +1740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b6b642c4dac16448c79145758e0278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PainelG: {fileID: 8934858290081320670}
 --- !u!1 &4454778748941016183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3629,6 +3628,7 @@ GameObject:
   - component: {fileID: 4830582945062828353}
   - component: {fileID: 755077598249647202}
   - component: {fileID: 4282204336090487226}
+  - component: {fileID: 2218113810078626190}
   m_Layer: 5
   m_Name: "Bot\xE3oPause"
   m_TagString: Untagged
@@ -3750,6 +3750,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2218113810078626190}
+        m_TargetAssemblyTypeName: UIButtonSound, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2218113810078626190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259178548556876715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17318cf6b8f5d6e44b9f87701de5a34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8379485467217171424
 GameObject:
   m_ObjectHideFlags: 0
