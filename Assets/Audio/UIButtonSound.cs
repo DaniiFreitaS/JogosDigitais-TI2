@@ -4,8 +4,8 @@ public class UIButtonSound : MonoBehaviour
 {
     public void PlayClickSound()
     {
-        if (AudioManager.instance != null)
-            AudioManager.instance.PlayUIClick();
+        AudioManager audio = FindObjectOfType<AudioManager>();
+        if (audio != null)
+            audio.PlaySFX(audio.button);
     }
 }
- 
