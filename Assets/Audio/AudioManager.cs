@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
+
     [Header("--------Audio Source----------")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
@@ -13,21 +15,23 @@ public class AudioManager : MonoBehaviour
     public AudioClip jump;
     public AudioClip coin;
     public AudioClip coinDrop;
+    public AudioClip button;
 
     private void Awake()
     {
-        // Evita duplicar
-        if (FindObjectsOfType<AudioManager>().Length > 1)
+        if (instance != null)
         {
             Destroy(gameObject);
             return;
         }
 
+        instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Escuta as mudanças de cena
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+
 
     private void OnSceneLoaded(Scene cena, LoadSceneMode modo)
     {
@@ -47,6 +51,11 @@ public class AudioManager : MonoBehaviour
     {
         if (SFXSource == null || clip == null) return;
         SFXSource.PlayOneShot(clip);
+    }
+
+    public void PlayUIClick()
+    {
+        PlaySFX(button);
     }
 
 }
