@@ -39,10 +39,17 @@ public class PlayerMovement : MonoBehaviour
 
             if (toque.phase == TouchPhase.Began)
             {
-                if (toque.position.y > Screen.height / 2)
+                // Ponto que divide a tela em 2
+                float meio = Screen.width * 0.5f;
+
+                if (toque.position.x < meio)
+                {
                     tapCima = true;
+                }
                 else
+                {
                     tapBaixo = true;
+                }
             }
         }
     }
@@ -85,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetPos()
     {
+        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         cc.enabled = false;
         Vector3 reset = transform.position;
         reset.y = 20f;

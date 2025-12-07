@@ -9,11 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8164721152807868939}
-  - component: {fileID: 6480886012489814781}
   - component: {fileID: 5850026263151525638}
   - component: {fileID: 9184088870296555561}
   - component: {fileID: 6939609480919186917}
   - component: {fileID: 1441205608476877458}
+  - component: {fileID: 786534631734620910}
+  - component: {fileID: 3222702632115079333}
+  - component: {fileID: 7686171428105052855}
+  - component: {fileID: 1385451305547988168}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -37,24 +40,6 @@ Transform:
   - {fileID: 234811043801919413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6480886012489814781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425629024332648833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4e02ab225bbff43ac6aea77fd6acee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidadeMax: 15
-  aceleracao: 5
-  alturaPulo: 4.5
-  gravidade: 49.9
-  duracaoTurbo: 5
-  duracaoEscudo: 7
 --- !u!136 &5850026263151525638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -131,6 +116,61 @@ MonoBehaviour:
   moedasParaVitoria: 90
   vida: 25
   vidaMax: 31
+--- !u!114 &786534631734620910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425629024332648833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f61fee283f171e4db654162ea81dec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3222702632115079333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425629024332648833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fff3388c703574eace91ae6e3b30cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxMoedas: {fileID: 0}
+--- !u!114 &7686171428105052855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425629024332648833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ade563c475c6434d91933dd20114b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeMax: 14
+  aceleracao: 1
+  alturaPulo: 6
+  gravidade: 140
+--- !u!114 &1385451305547988168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425629024332648833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d7e80c180d13244829dc4a6d62a466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duracaoTurbo: 5
+  duracaoEscudo: 7
 --- !u!1001 &344681618270292062
 PrefabInstance:
   m_ObjectHideFlags: 0
