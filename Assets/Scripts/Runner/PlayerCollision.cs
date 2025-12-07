@@ -7,14 +7,11 @@ public class PlayerCollision : MonoBehaviour
 
     private PlayerMovement movimento;
     private PlayerPowerUps powerups;
-    private AudioManager audioManager;
 
     private void Awake()
     {
         movimento = GetComponent<PlayerMovement>();
         powerups = GetComponent<PlayerPowerUps>();
-
-        audioManager = FindObjectOfType<AudioManager>();
     }
     
     private void OnTriggerEnter(Collider other)
@@ -65,9 +62,7 @@ public class PlayerCollision : MonoBehaviour
         if (other.CompareTag("Coin"))
         {
             MoedasCounter.instance.AumentoDeMoedas(1);
-            if (audioManager != null)
-                audioManager.PlaySFX(audioManager.coin);
-                    Destroy(other.gameObject);
+            Destroy(other.gameObject);
         }
     }
     
