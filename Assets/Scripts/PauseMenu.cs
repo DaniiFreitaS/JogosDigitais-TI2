@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene("Runner");
+        SceneManager.LoadScene("RunnerTeste");
     }
         public void Menu()
     {
