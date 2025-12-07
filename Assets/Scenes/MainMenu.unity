@@ -1115,6 +1115,7 @@ MonoBehaviour:
   menu: {fileID: 8300000, guid: 95379120edfec1241960394cb5cb328a, type: 3}
   jump: {fileID: 8300000, guid: 7e1f82cb981eda248b4d3ea6c3e362ed, type: 3}
   coin: {fileID: 8300000, guid: bfe90f1e07579c74d90afcb2e61e2735, type: 3}
+  coinDrop: {fileID: 8300000, guid: 938ad385e1dddff4897c85ebc330a94e, type: 3}
 --- !u!4 &458629131
 Transform:
   m_ObjectHideFlags: 0

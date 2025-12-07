@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip menu;
     public AudioClip jump;
     public AudioClip coin;
+    public AudioClip coinDrop;
 
     private void Awake()
     {
@@ -41,4 +42,12 @@ public class AudioManager : MonoBehaviour
 
         musicSource.Play();
     }
+
+        // adiciona no AudioManager (única função nova)
+        public void PlaySFX(AudioClip clip)
+        {
+            if (SFXSource == null || clip == null) return;
+            SFXSource.PlayOneShot(clip);
+        }
+
 }

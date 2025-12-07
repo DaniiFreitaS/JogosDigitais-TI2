@@ -7,11 +7,16 @@ public class PlayerCollision : MonoBehaviour
 
     private PlayerMovement movimento;
     private PlayerPowerUps powerups;
+    private AudioManager audioManager;
+
 
     private void Awake()
     {
         movimento = GetComponent<PlayerMovement>();
         powerups = GetComponent<PlayerPowerUps>();
+        audioManager = FindObjectOfType<AudioManager>();
+
+
     }
     
     private void OnTriggerEnter(Collider other)
@@ -48,6 +53,10 @@ public class PlayerCollision : MonoBehaviour
             // VFX opcional
             if (vfxMoedas != null)
                 Instantiate(vfxMoedas, transform.position + Vector3.up, Quaternion.identity);
+
+            if (audioManager != null)
+                audioManager.PlaySFX(audioManager.coinDrop);
+
 
             // aplica dano no sistema
             bool gameOver = MoedasCounter.instance.AplicarDano();
