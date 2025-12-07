@@ -12,6 +12,7 @@ TagManager:
   - PowerUpEscudo
   - PowerUpVelocidade
   - Coin
+  - GameOverTAG
   layers:
   - Default
   - TransparentFX

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11f2225ac121dc4887ca61315d46853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moedasatuais: 29
+  moedasatuais: 0
   moedasParaVitoria: 0
   vida: 25
   vidaMax: 31
@@ -146,6 +146,10 @@ MonoBehaviour:
   aceleracao: 13.9
   alturaPulo: 8.79
   gravidade: 57.2
+  animator: {fileID: 0}
+  animacaoCorrida: {fileID: 0}
+  animacaoLanding: {fileID: 0}
+  animacaoHit: {fileID: 0}
 --- !u!114 &5409161138520553954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fff3388c703574eace91ae6e3b30cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxMoedas: {fileID: 0}
+  vfxMoedas: {fileID: 475281234178822017, guid: e40a7c3a23b2b7743b7e25881b53cb01, type: 3}
 --- !u!1001 &344681618270292062
 PrefabInstance:
   m_ObjectHideFlags: 0

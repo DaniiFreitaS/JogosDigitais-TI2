@@ -1,13 +1,15 @@
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverScreen : MonoBehaviour
 {
+    /*
     public GameObject PainelG; //Painel Game Over
     public void Restart()
     {
-        SceneManager.LoadScene("Runner");
+        SceneManager.LoadScene("RunnerTeste");
     }
 
     void Start()
@@ -24,5 +26,5 @@ public class GameOverScreen : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+*/
 }
-

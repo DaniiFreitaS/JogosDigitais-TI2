@@ -7,11 +7,13 @@ public class PlayerCollision : MonoBehaviour
 
     private PlayerMovement movimento;
     private PlayerPowerUps powerups;
+    private AudioManager audioManager;
 
     private void Awake()
     {
         movimento = GetComponent<PlayerMovement>();
         powerups = GetComponent<PlayerPowerUps>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
     
     private void OnTriggerEnter(Collider other)
@@ -32,15 +34,11 @@ public class PlayerCollision : MonoBehaviour
         }
 
         // Dano / inimigo / cair no buraco
-        if (other.CompareTag("Enemy") || other.CompareTag("LimiteInf"))
+        if (other.CompareTag("Enemy"))
         {
-            Debug.Log(other.tag);
             if (powerups.EscudoAtivo)
             {
                 // escudo bloqueia dano
-                if (other.CompareTag("LimiteInf"))
-                    //movimento.ResetPos();
-
                 Debug.Log("Dano bloqueado pelo Escudo!");
                 return;
             }
@@ -49,22 +47,34 @@ public class PlayerCollision : MonoBehaviour
             if (vfxMoedas != null)
                 Instantiate(vfxMoedas, transform.position + Vector3.up, Quaternion.identity);
 
+            if (audioManager != null)
+                audioManager.PlaySFX(audioManager.coinDrop);
+
             // aplica dano no sistema
             bool gameOver = MoedasCounter.instance.AplicarDano();
 
-            if (!gameOver)
-                //movimento.ResetPos();
+            if (gameOver)
+            {
+                Debug.Log("TEste Game over Chamado");
+            }
 
             return;
+        }
+
+        if (other.CompareTag("LimiteInf"))
+        {
+            MoedasCounter.instance.AtivarGameOver();
         }
 
         // Coleta de moedas
         if (other.CompareTag("Coin"))
         {
             MoedasCounter.instance.AumentoDeMoedas(1);
+
+            if (audioManager != null)
+                audioManager.PlaySFX(audioManager.coin);
+
             Destroy(other.gameObject);
         }
     }
-    
 }
-

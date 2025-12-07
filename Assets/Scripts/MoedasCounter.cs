@@ -8,7 +8,7 @@ public class MoedasCounter : MonoBehaviour
 
     [Header("UI")]
     private TMP_Text Moedatxt;
-    private GameOverScreen gameOverScreen;
+    //private GameObject gameOverScreen;
     private GameObject Vitoria;
 
     [Header("Valores do Jogo")]
@@ -23,6 +23,7 @@ public class MoedasCounter : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("MoedasCounter está no objeto: " + gameObject.name, gameObject);
         // Singleton seguro
         if (instance == null)
             instance = this;
@@ -55,9 +56,9 @@ public class MoedasCounter : MonoBehaviour
             Debug.LogWarning("⚠ Objeto com tag 'Vitoria' não encontrado!");
 
         // Game Over
-        gameOverScreen = FindObjectOfType<GameOverScreen>();
-        if (gameOverScreen == null)
-            Debug.LogWarning("⚠ GameOverScreen não encontrado na cena!");
+       // gameOverScreen = GameObject.FindGameObjectWithTag("GameOverTAG");
+        //if (gameOverScreen == null)
+         //   Debug.LogWarning("⚠ GameOverScreen não encontrado na cena!");
     }
 
     void Start()
@@ -124,6 +125,7 @@ public class MoedasCounter : MonoBehaviour
 
         if (vida <= 0)
         {
+            Debug.Log("Teste vida zerado");
             AtivarGameOver();
             return true;
         }
@@ -135,20 +137,23 @@ public class MoedasCounter : MonoBehaviour
         if (Moedatxt != null)
         {
             Moedatxt.text =
-                $"Moedas: {moedasatuais}/{moedasParaVitoria} | Vidas: {vida}/{vidaMax}";
+                $"Moedas: {moedasatuais}";
         }
     }
 
-    private void AtivarGameOver()
+    public void AtivarGameOver()
     {
-        if (gameOverScreen != null && gameOverScreen.PainelG != null)
+        Debug.Log("Gameover script chegou ao final");
+        GameManager.instance.MostrarGameOver();
+        /*if (gameOverScreen != null && gameOverScreen != null)
         {
-            gameOverScreen.PainelG.SetActive(true);
+            gameOverScreen.SetActive(true);
             Time.timeScale = 0;
         }
         else
         {
             Debug.LogWarning("⚠ Não foi possível ativar o Game Over! Objetos ausentes.");
         }
+        */
     }
 }
