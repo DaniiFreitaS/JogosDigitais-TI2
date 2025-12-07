@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Mobile
     private bool tapCima = false;
-    private bool tapBaixo = false;
+    private bool segurarBaixo = false;
 
     private void Awake()
     {
@@ -64,20 +64,27 @@ public class PlayerMovement : MonoBehaviour
     void DetectarInputMobile()
     {
         tapCima = false;
-        tapBaixo = false;
+        segurarBaixo = false;
 
         if (Input.touchCount > 0)
         {
             Touch toque = Input.GetTouch(0);
+            float meio = Screen.width * 0.5f;
 
+            // TAP para pular
             if (toque.phase == TouchPhase.Began)
             {
-                float meio = Screen.width * 0.5f;
-
                 if (toque.position.x < meio)
                     tapCima = true;
-                else
-                    tapBaixo = true;
+            }
+
+            // SEGURAR na direita para descer
+            if (toque.position.x > meio)
+            {
+                if (toque.phase == TouchPhase.Stationary || toque.phase == TouchPhase.Moved)
+                {
+                    segurarBaixo = true;
+                }
             }
         }
     }
@@ -106,10 +113,17 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl) || tapBaixo)
+            // descida rápida
+            if (Input.GetKey(KeyCode.LeftControl) ||
+                Input.GetKey(KeyCode.RightControl) ||
+                segurarBaixo)
+            {
                 movimento.y -= gravidade * 5f * Time.deltaTime;
+            }
             else
+            {
                 movimento.y -= gravidade * Time.deltaTime;
+            }
         }
 
         cc.Move(movimento * Time.deltaTime);
@@ -136,26 +150,19 @@ public class PlayerMovement : MonoBehaviour
 
         bool noChao = cc.isGrounded;
 
-        // --- Tocou o chão (LANDING) ---
         if (noChao && !estavaNoChao)
         {
             TocarAnimacao(animacaoLanding ?? animacaoCorrida);
         }
 
-        // --- No chão = animação normal ---
         if (noChao)
-        {
             clipPlayable.SetSpeed(1);
-        }
         else
-        {
-            clipPlayable.SetSpeed(0); // congela no ar
-        }
+            clipPlayable.SetSpeed(0);
 
         estavaNoChao = noChao;
     }
 
-    // -------------------- Colisão Enemy --------------------
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag("Enemy"))
@@ -164,7 +171,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // -------------------- Reset --------------------
     public void ResetPos()
     {
         Debug.Log("Reset de posição");
