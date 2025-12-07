@@ -34,11 +34,16 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.clip = menu;
         }
-        else if (cena.name == "Runner")
+        else if (cena.name == "RunnerTeste")
         {
             musicSource.clip = background;
         }
 
         musicSource.Play();
+    }
+    
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
     }
 }
