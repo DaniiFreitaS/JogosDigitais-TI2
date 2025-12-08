@@ -337,6 +337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bonecoAnim
       objectReference: {fileID: 0}
+    - target: {fileID: 7004239499238871155, guid: a844e47bda9fd6f44b0c0d88fcfdb07e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f7087d1f37c7574c80fec2222bd74a2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

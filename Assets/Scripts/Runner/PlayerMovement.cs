@@ -15,11 +15,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 movimento;
     private float velocidadeAtual = 0f;
 
-    // --- Animation ---
+    // --- Animator ---
     [Header("Animação")]
     public Animator animator;
 
-    public AnimationClip animacaoCorrida;
     public AnimationClip animacaoLanding;
     public AnimationClip animacaoHit;
 
@@ -37,18 +36,12 @@ public class PlayerMovement : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
 
-        if (animator != null && animacaoCorrida != null)
+        // PlayableGraph apenas para Landing/Hit
+        if (animator != null)
         {
-            graph = PlayableGraph.Create("GraphCorrida");
+            graph = PlayableGraph.Create("GraphEventos");
             graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
-
-            clipPlayable = AnimationClipPlayable.Create(graph, animacaoCorrida);
-            clipPlayable.SetApplyFootIK(true);
-            clipPlayable.SetDuration(double.PositiveInfinity);
-
             outputPlayable = AnimationPlayableOutput.Create(graph, "SaidaAnim", animator);
-            outputPlayable.SetSourcePlayable(clipPlayable);
-
             graph.Play();
         }
     }
@@ -72,103 +65,79 @@ public class PlayerMovement : MonoBehaviour
             float meio = Screen.width * 0.5f;
 
             // TAP para pular
-            if (toque.phase == TouchPhase.Began)
-            {
-                if (toque.position.x < meio)
-                    tapCima = true;
-            }
+            if (toque.phase == TouchPhase.Began && toque.position.x < meio)
+                tapCima = true;
 
             // SEGURAR na direita para descer
-            if (toque.position.x > meio)
-            {
-                if (toque.phase == TouchPhase.Stationary || toque.phase == TouchPhase.Moved)
-                {
-                    segurarBaixo = true;
-                }
-            }
+            if (toque.position.x > meio &&
+                (toque.phase == TouchPhase.Stationary || toque.phase == TouchPhase.Moved))
+                segurarBaixo = true;
         }
     }
 
     // -------------------- Movement --------------------
     public void Mover()
     {
+        // Aceleração horizontal
         if (velocidadeAtual < velocidadeMax)
         {
             velocidadeAtual += aceleracao * Time.deltaTime;
             velocidadeAtual = Mathf.Min(velocidadeAtual, velocidadeMax);
         }
-
         movimento.x = velocidadeAtual;
 
+        // Movimento vertical
         if (cc.isGrounded)
         {
             if (Input.GetKey(KeyCode.Space) || tapCima)
-            {
                 movimento.y = Mathf.Sqrt(2 * gravidade * alturaPulo);
-            }
             else
-            {
-                movimento.y = -1f;
-            }
+                movimento.y = -1f; // manter contato com o chão
         }
         else
         {
             // descida rápida
-            if (Input.GetKey(KeyCode.LeftControl) ||
-                Input.GetKey(KeyCode.RightControl) ||
-                segurarBaixo)
-            {
+            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl) || segurarBaixo)
                 movimento.y -= gravidade * 5f * Time.deltaTime;
-            }
             else
-            {
                 movimento.y -= gravidade * Time.deltaTime;
-            }
         }
 
         cc.Move(movimento * Time.deltaTime);
     }
 
     // -------------------- Animation Control --------------------
-    void TocarAnimacao(AnimationClip clip)
-    {
-        if (clip == null) return;
-
-        clipPlayable = AnimationClipPlayable.Create(graph, clip);
-        clipPlayable.SetApplyFootIK(true);
-        clipPlayable.SetDuration(double.PositiveInfinity);
-
-        outputPlayable.SetSourcePlayable(clipPlayable);
-        clipPlayable.SetTime(0);
-        clipPlayable.SetSpeed(1);
-    }
-
     void AtualizarAnimacao()
     {
-        if (animacaoCorrida == null)
-            return;
+        if (animator == null) return;
 
         bool noChao = cc.isGrounded;
 
-        if (noChao && !estavaNoChao)
-        {
-            TocarAnimacao(animacaoLanding ?? animacaoCorrida);
-        }
-
-        if (noChao)
-            clipPlayable.SetSpeed(1);
-        else
-            clipPlayable.SetSpeed(0);
+        // Corrida automática em loop: não precisamos mexer no Speed
+        // Apenas Landing via PlayableGraph quando toca o chão
+        if (noChao && !estavaNoChao && animacaoLanding != null)
+            TocarAnimacao(animacaoLanding);
 
         estavaNoChao = noChao;
     }
 
+    void TocarAnimacao(AnimationClip clip)
+    {
+        if (clip == null || !graph.IsValid()) return;
+
+        clipPlayable = AnimationClipPlayable.Create(graph, clip);
+        clipPlayable.SetApplyFootIK(true);
+        clipPlayable.SetDuration(double.PositiveInfinity);
+        outputPlayable.SetSourcePlayable(clipPlayable);
+
+        clipPlayable.SetTime(0);
+        clipPlayable.SetSpeed(1);
+    }
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.collider.CompareTag("Enemy"))
-        {
+        if (hit.collider.CompareTag("Enemy") && animacaoHit != null)
             TocarAnimacao(animacaoHit);
-        }
     }
 
     public void ResetPos()
