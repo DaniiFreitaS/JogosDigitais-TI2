@@ -15,6 +15,7 @@ public class ResultadoFinal : MonoBehaviour
         int moedas = moedasCounter.moedasatuais;         //faz o mesmo (so não tendo que converter) com as moedas
 
         total = pontos * moedas;                     //multiplica os dois e coloca no total :p
+        Debug.Log(total);
 
 
         resultadoDerrotaTxt.text = pontos + "\n x " + moedas + "\n" + "-------------\n" + total.ToString(); //Pega o texto, e coloca a pontuação, em outra linha "x" + o numero de moedas, e depois faz um traço para colocar o resultado :3
