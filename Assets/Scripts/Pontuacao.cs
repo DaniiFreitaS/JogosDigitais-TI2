@@ -9,6 +9,7 @@ public class Pontuacao : MonoBehaviour
     public TextMeshProUGUI highscoreText;
     int highscore = 0;
     public TextMeshProUGUI timertxt; //Texto da UI
+    public int score;
     void Start()
     {
         highscore = PlayerPrefs.GetInt("highscore", 0); //Pega o score salvo, mas se não tiver fica como zero
@@ -19,7 +20,8 @@ public class Pontuacao : MonoBehaviour
     void Update()
     {
         time += PontosPorSeg * Time.deltaTime; //Adiciona tempo ao tempo
-        timertxt.text = Mathf.FloorToInt(time).ToString() + " m"; //Converte o numero para string, para aparecer na tela
+        score = Mathf.FloorToInt(time);
+        timertxt.text = score.ToString() + "pts"; //Converte o numero para string, para aparecer na tela
         if (PontuacaoTotal != null && PontuacaoTotal.total > highscore) //Compara o tempo atual com o antigo
         {
             highscore = PontuacaoTotal.total; //Adapta o time de float pra int
