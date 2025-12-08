@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerPowerUps : MonoBehaviour
 {
     public float duracaoTurbo = 5f;
-    public float duracaoEscudo = 7f;
+    public float duracaoEscudo = 3f;
 
     private PlayerMovement movimento;
     private float velocidadeOriginal;

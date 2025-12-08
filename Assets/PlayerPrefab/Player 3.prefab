@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duracaoTurbo: 5
-  duracaoEscudo: 7
+  duracaoEscudo: 3
   escudoVisual: {fileID: 3463864170796349167}
 --- !u!114 &668216663842020727
 MonoBehaviour:
@@ -149,7 +149,6 @@ MonoBehaviour:
   alturaPulo: 8.79
   gravidade: 57.2
   animator: {fileID: 5866666021909216657, guid: a844e47bda9fd6f44b0c0d88fcfdb07e, type: 3}
-  animacaoCorrida: {fileID: 7400000, guid: 899c581098a8caf4694cbd08ecd2daf9, type: 2}
   animacaoLanding: {fileID: 0}
   animacaoHit: {fileID: 0}
 --- !u!114 &5409161138520553954
@@ -194,7 +193,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.95000404, y: 2.53, z: 2.410004}
+  m_LocalScale: {x: 2.44, y: 2.53, z: 2.410004}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8164721152807868939}
