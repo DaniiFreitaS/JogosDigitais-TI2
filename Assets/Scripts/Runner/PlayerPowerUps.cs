@@ -15,6 +15,7 @@ public class PlayerPowerUps : MonoBehaviour
     private bool escudoAtivo = false;
     private float tempoEscudoRestante = 0f;
 
+    public GameObject escudoVisual;
     public bool EscudoAtivo => escudoAtivo;
 
     private void Awake()
@@ -67,10 +68,14 @@ public class PlayerPowerUps : MonoBehaviour
     {
         escudoAtivo = true;
         tempoEscudoRestante = duracaoEscudo;
+        if (escudoVisual != null)
+            escudoVisual.SetActive(true);
     }
 
     private void DesativarEscudo()
     {
         escudoAtivo = false;
+        if (escudoVisual != null)
+            escudoVisual.SetActive(false);
     }
 }
